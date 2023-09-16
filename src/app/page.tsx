@@ -63,13 +63,13 @@ const Homepage: React.FC = () => {
 
   return (
     <>
-      <div className="h-8">
+      <div className="h-8 bg-black">
         <Header />
         <SearchBar filterSearch = {handleNewFilter}/>
       </div>
-      <div className="mt-20 flex flex-col justify-center">
+      <div className="mt-10 flex flex-col justify-center bg-black pb-16 pt-8">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
             {businesses.map((business, index) => (
               business.name.includes(filter) ? <BusinessCard key={index} {...business} /> : null
             ))}
