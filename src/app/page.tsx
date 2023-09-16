@@ -62,18 +62,21 @@ const Homepage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col justify-center bg-gray-100 dark:bg-gray-800">
-      <Header />
-      
-      <SearchBar filterSearch = {handleNewFilter}/>
-      <div className="container mx-auto p-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {businesses.map((business, index) => (
-            business.name.includes(filter) ? <BusinessCard key={index} {...business} /> : null
-          ))}
+    <>
+      <div className="h-8">
+        <Header />
+        <SearchBar filterSearch = {handleNewFilter}/>
+      </div>
+      <div className="mt-20 flex flex-col justify-center bg-gray-100 dark:bg-gray-800">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {businesses.map((business, index) => (
+              business.name.includes(filter) ? <BusinessCard key={index} {...business} /> : null
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
