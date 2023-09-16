@@ -86,7 +86,6 @@ const Homepage: React.FC = () => {
       <div className="h-8 bg-black">
         <Header />
         <SearchBar filterSearch = {handleNewFilter}/>
-        <BusinessModal business={selectedBusiness} isShowing={showModal} setIsShowing={setShowModal}/>
       </div>
       <div className="mt-10 flex flex-col justify-center bg-black pb-16 pt-8">
         <div className="container mx-auto">
@@ -97,6 +96,8 @@ const Homepage: React.FC = () => {
           </div>
         </div>
       </div>
+      <BusinessModal business={selectedBusiness} isShowing={showModal} setIsShowing={setShowModal}/>
+
     </>
   );
 };
