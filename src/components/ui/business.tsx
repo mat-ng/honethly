@@ -13,7 +13,11 @@ export const BusinessModal = (props: { business: Business, isShowing: boolean, s
   };
 
   const redirectToWallet = () => {
-    window.open('/examples/wallet');
+    window.open('/transfer');
+  };
+
+  const redirectToReview = () => {
+    window.open('/review');
   };
 
   return (
@@ -38,6 +42,12 @@ export const BusinessModal = (props: { business: Business, isShowing: boolean, s
               className="bg-gray-500 hover:bg-gray-600 text-white rounded-md px-2 py-1 my-2 focus:outline-none mr-2"
             >
               Pay
+            </button>
+            <button
+              onClick={redirectToReview}
+              className="bg-gray-500 hover:bg-gray-600 text-white rounded-md px-2 py-1 my-2 focus:outline-none mr-2"
+            >
+              Review
             </button>
           </div>
         </div>
