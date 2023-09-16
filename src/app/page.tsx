@@ -67,7 +67,7 @@ const Homepage: React.FC = () => {
         <Header />
         <SearchBar filterSearch = {handleNewFilter}/>
       </div>
-      <div className="mt-20 flex flex-col justify-center bg-gray-100 dark:bg-gray-800">
+      <div className="mt-20 flex flex-col justify-center">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {businesses.map((business, index) => (
