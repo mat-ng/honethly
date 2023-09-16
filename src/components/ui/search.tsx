@@ -6,7 +6,7 @@ interface props {
 
 const SearchBar: React.FC<props> = ({ filterSearch }) => {
   return (
-    <div className="bg-white dark:bg-gray-700 shadow-md  mt-[7rem] p-7 w-2/3 mx-auto w-full bg-black">
+    <div className="bg-white dark:bg-gray-700 shadow-md  mt-[7rem] p-7 mx-auto w-full bg-black">
       <div className="flex justify-center">
       <input
         type="text"
