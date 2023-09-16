@@ -12,7 +12,7 @@ const Header: React.FC = () => {
           size="sm"
           variant="default"
         >
-          <Link href="/examples/wallet">Connect Your Wallet</Link>
+          <Link href="/transfer">Connect Your Wallet</Link>
         </Button>
         </h1>
         
