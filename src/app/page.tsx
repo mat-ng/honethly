@@ -22,6 +22,36 @@ const Homepage: React.FC = () => {
       rating: 3.7, // Sample rating value
       imageUrl: Business1img.src // Sample image source URL
     },
+    {
+      name: 'Business 2',
+      description: 'Description for Business 2',
+      rating: 3.7, // Sample rating value
+      imageUrl: Business1img.src // Sample image source URL
+    },
+    {
+      name: 'Business 2',
+      description: 'Description for Business 2',
+      rating: 3.7, // Sample rating value
+      imageUrl: Business1img.src // Sample image source URL
+    },
+    {
+      name: 'Business 2',
+      description: 'Description for Business 2',
+      rating: 3.7, // Sample rating value
+      imageUrl: Business1img.src // Sample image source URL
+    },
+    {
+      name: 'Business 2',
+      description: 'Description for Business 2',
+      rating: 3.7, // Sample rating value
+      imageUrl: Business1img.src // Sample image source URL
+    },
+    {
+      name: 'Business 2',
+      description: 'Description for Business 2',
+      rating: 3.7, // Sample rating value
+      imageUrl: Business1img.src // Sample image source URL
+    }
   ];
 
   return (
