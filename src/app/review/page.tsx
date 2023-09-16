@@ -4,7 +4,7 @@ import React from "react";
 import { useAccount, useConnect, useDisconnect } from "wagmi";
 
 import { Button } from "@/components/ui/button";
-import { Pay } from "@/components/ui/pay";
+import { Review } from "@/components/ui/review"
 
 export default function Wallet() {
   const [copied, setCopied] = React.useState(true);
@@ -66,7 +66,7 @@ export default function Wallet() {
       ))}
 
       <div className='flex flex-row items-center justify-center'> 
-        <Pay to='0xf76a362b56Bce942CB51ae4Ba75cAEe9126874d2' amount='0.001'/> 
+        <Review /> 
       </div>
 
       {error && <div>{error.message}</div>}
