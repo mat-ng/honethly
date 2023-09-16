@@ -1,15 +1,15 @@
+import { Business } from '@/app/page';
 import React from 'react';
 
 interface BusinessCardProps {
-  name: string;
-  description: string;
-  rating: number;
-  imageUrl: string;
+  business: Business;
+  onPress: (business: Business) => void;
 }
 
-const BusinessCard: React.FC<BusinessCardProps> = ({ name, description, rating, imageUrl }) => {
+const BusinessCard: React.FC<BusinessCardProps> = ({ business, onPress }) => {
+  const {name, imageUrl, description, rating } = business;
   return (
-    <div className="bg-white dark:bg-gray-700 shadow-md rounded-lg p-4">
+    <div className="bg-white dark:bg-gray-700 shadow-md rounded-lg p-4" onClick={()=>onPress(business)}>
       <div className="mb-4">
         <img src={imageUrl} alt={name} className="w-full h-auto rounded-lg" />
       </div>
