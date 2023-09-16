@@ -4,10 +4,10 @@ import React from "react";
 import { useAccount, useConnect, useDisconnect } from "wagmi";
 
 import { Button } from "@/components/ui/button";
-import { Pay } from "@/components/pay";
+import { Pay } from "@/components/ui/pay";
 
 export default function Wallet() {
-  const [copied, setCopied] = React.useState(false);
+  const [copied, setCopied] = React.useState(true);
   const { address, isConnecting, isDisconnected } = useAccount();
 
   const { connect, connectors, error, isLoading, pendingConnector } =

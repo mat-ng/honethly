@@ -1,6 +1,6 @@
 import { usePrepareSendTransaction, useSendTransaction, useWaitForTransaction } from "wagmi";
 import { parseEther } from 'viem';
-import { Button } from "./ui/button";
+import { Button } from "./button";
 
 export function Pay(props: {
     to: string,
