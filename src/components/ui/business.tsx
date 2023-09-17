@@ -2,12 +2,16 @@
 import React, { useEffect, useState, useRef } from 'react';
 import {Pay} from '@/components/ui/pay'
 import { Business } from '@/app/page';
+import { useAccount } from 'wagmi';
 
 export const BusinessModal = (props: { business: Business, isShowing: boolean, setIsShowing: (b: boolean) => void }) => {
   const { isShowing, business, setIsShowing} = props;
   const {name,description,rating} = business;
   const modalRef = useRef(null);
 
+  const { address, isConnected } = useAccount();
+
+  
   const [isVerified, setIsVerified] = useState(false)
   const [textValue, setTextValue] = useState('')
 
@@ -24,16 +28,21 @@ export const BusinessModal = (props: { business: Business, isShowing: boolean, s
   };
 
   const handleReview = async () => {
-    console.log(isVerified)
+    if(!isConnected){
+      setIsVerified(false);
+      return;
+    }
     const res = await fetch('https://api-goerli.etherscan.io/api?module=account&action=txlist&address=0x71896ddf262ceaedb7f064c5d5d43703981f388e&startblock=0&endblock=99999999&page=1&offset=10&sort=asc&apikey=8BVPPZIHUYX9HDBQ388S6ST3TFESSZWU31')
     const data = await res.json()
-    console.log(data.result)
     data.result.map((transaction: any) => {
-        if (transaction.to == "0xe650ac792a9244dd9e97e37548a1123d9ba27003") { //check if user transferred money to company
+        if (transaction.to == "0xe650ac792a9244dd9e97e37548a1123d9ba27003" && transaction.from == address?.toLocaleLowerCase()) { 
+          //check if user transferred money to company
             setIsVerified(true)
         }
   })
 }
+
+console.log(isVerified);
 
 const handleSubmit = (e: any) => {
   if (e.code == "Enter") {
