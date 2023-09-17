@@ -40,9 +40,9 @@ const Header: React.FC = () => {
                   connector.id === pendingConnector?.id &&
                   " (connecting)"}
               </Button>
-            ) : (<div className='flex flex-col itmes-right'> 
-                  <div> Connected as {address?.substring(0,6) + '...' + address?.substring(address.length-4)} </div>
-                  <Button className='w-28' onClick={() => disconnect()}>
+            ) : (<div className='flex items-right'> 
+                  <div className='mr-3 mt-1'> Connected as {address?.substring(0,6) + '...' + address?.substring(address.length-4)} </div>
+                  <Button className='float-right w-28' onClick={() => disconnect()}>
                     Disconnect
                   </Button>
                 </div>
