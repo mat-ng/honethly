@@ -16,7 +16,6 @@ const BusinessCard: React.FC<BusinessCardProps> = ({ business, onPress }) => {
       <h2 className="text-xl font-semibold mb-2">{name}</h2>
       <p>{description}</p>
       <div className="mt-2 flex items-center">
-        <span className="text-emerald-600">{rating} Stars</span>
       </div>
     </div>
   );
