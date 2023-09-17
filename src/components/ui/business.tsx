@@ -109,7 +109,7 @@ const handleMusicSubmit = (e: any) => {
               })}
             </>
             :
-            <p>You need to connect your wallet to view or leave reviews!</p>
+            <p className='text-red-500'>You need to connect your wallet and make a transaction here to view or leave reviews!</p>
             }
           </div>
         </div>
