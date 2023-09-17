@@ -19,7 +19,6 @@ export function Pay(props: {
     const handleClick = () => {
         sendTransaction?.();
     }
-
     return (
         <div className='flex flex-col items-center'>
             <Button className='w-64' disabled={isLoading || !sendTransaction} onClick={handleClick}> {isLoading ? 'Sending' : 'Send'} </Button>
