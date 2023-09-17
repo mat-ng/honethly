@@ -27,7 +27,6 @@ export function Review(
     // }
 
     const handleReview = async () => {
-        console.log(isVerified)
         const res = await fetch('https://api-goerli.etherscan.io/api?module=account&action=txlist&address=0x71896ddf262ceaedb7f064c5d5d43703981f388e&startblock=0&endblock=99999999&page=1&offset=10&sort=asc&apikey=8BVPPZIHUYX9HDBQ388S6ST3TFESSZWU31')
         const data = await res.json()
         data.result.map((transaction: any) => {

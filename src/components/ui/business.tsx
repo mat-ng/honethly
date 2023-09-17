@@ -42,8 +42,6 @@ export const BusinessModal = (props: { business: Business, isShowing: boolean, s
   })
 }
 
-console.log(isVerified);
-
 const handleSubmit = (e: any) => {
   if (e.code == "Enter") {
     setReviews(prevState => ([e.target.value, ...prevState]))

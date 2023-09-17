@@ -68,7 +68,6 @@ const Homepage: React.FC = () => {
   const [filter, setFilter] = useState('')
 
   const handleNewFilter = (filter: string) => {
-    console.log(filter)
     setFilter(filter);
   }
 
