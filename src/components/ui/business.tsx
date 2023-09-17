@@ -24,7 +24,7 @@ export const BusinessModal = (props: { business: Business, isShowing: boolean, s
   const [reviews, setReviews] = useState(["The pizza is very tasty", "Good customer service. I would come again.", "Affordable price and clean restaurant ."])
 
   const redirectToWallet = () => {
-    window.open('/transfer');
+    window.open(`/transfer?to=${business.ethAddress}`);
   };
 
   const handleReview = async () => {
