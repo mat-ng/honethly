@@ -91,7 +91,7 @@ const handleSubmit = (e: any) => {
               })}
             </>
             :
-            <p>You need to connect your wallet to view or leave reviews!</p>
+            <p className="text-red-600">You need to connect your wallet to view or leave reviews!</p>
             }
           </div>
         </div>

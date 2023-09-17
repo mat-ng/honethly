@@ -29,7 +29,7 @@ const Header: React.FC = () => {
         <h1 className="font-bold text-2xl hover:text-emerald-600">honETHly
         <div className='float-right align-top'>
             {!isConnected ? (
-              <Button
+              <Button className = "hover:text-emerald-600"
                 disabled={!connector.ready}
                 key={connector.id}
                 onClick={() => connect({ connector })}
