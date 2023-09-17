@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useAccount, useConnect, useDisconnect } from "wagmi";
 import wallet from '../../../img/wallet.png';
 import { Button } from "@/components/ui/button";
@@ -16,7 +16,18 @@ export default function Wallet() {
   const { disconnect } = useDisconnect();
   const searchParams = useSearchParams();
   const to = searchParams.get('to');
-  const amount = '0.001'
+  const [amount,setAmount] = useState('0');
+  const [amountCAD,setAmountCAD] = useState(0);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if(!isNaN(Number(e.target.value))){
+      const inputValue = e.target.value;
+      setAmount(inputValue);
+      setAmountCAD(Number((Number(amount) * 2200.12).toFixed(2)));
+    }
+  };
+  useEffect(()=>{
+    setAmountCAD(Number((Number(amount) * 2200.12).toFixed(2)));
+  }, [amount])
   return (
     <div className="max-w-2xl flex flex-col gap-2 mx-auto p-48">
       <h2 className="text-xl font-bold text-center">Connect your wallet</h2>
@@ -67,9 +78,18 @@ export default function Wallet() {
             " (connecting)"}
         </Button>
       ))}
+      <div className='flex flex-row items-center'>
+        <input
+          type="text"
+          placeholder="Enter Amount..."
+          value={amount}
+          className="py-2 px-4 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
+          onChange={handleChange}
+        />
+      </div>
       {address && (
       <div className='flex flex-row items-center text-xs w-96'>
-        <img src={wallet.src} alt={''} className="rounded-lg w-5 h-5" /> {amount} ETH from {' '}  
+        <img src={wallet.src} alt={''} className="rounded-lg w-5 h-5 mr-2" /> {'  '} {amount} ETH = {amountCAD} CAD from {' '}  
         {address.substring(0,5) + '...' + address.substring(address.length-4)} to {' '} 
         {to?.substring(0,5) + '...' + to?.substring(to.length-4)}
        </div>
