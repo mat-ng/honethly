@@ -8,6 +8,9 @@ import {BusinessModal} from "@/components/ui/business";
 import campuspizza from './../../img/campuspizza.jpg';
 import music from './../../img/music.jpg';
 import pharmasave from './../../img/pharmasave.jpg';
+import lazeez from './../../img/lazeez.jpeg';
+import homedepot from './../../img/homedepot.jpg';
+import autoshop from './../../img/autoshop.jpeg';
 
 export interface Business {
   name: string;
@@ -22,52 +25,39 @@ const Homepage: React.FC = () => {
     {
       name: 'Campus Pizza',
       description: 'Pizza',
-      rating: 4.5, // Sample rating value
       imageUrl: campuspizza.src, // Sample image source URL
       ethAddress:'0x853A2208e924466ff7048E2878eaa596e9868a4C',
     } as Business,
     {
       name: 'Long & McQuade',
       description: 'Musical Instruments',
-      rating: 3.7, // Sample rating value
       imageUrl: music.src,// Sample image source URL,
       ethAddress:'0xE650ac792a9244dd9E97e37548a1123D9ba27003',
     } as Business,
     {
       name: 'Pharmasave Westmount Place ',
       description: 'Pharmacy & Home Health Care',
-      rating: 3.7, // Sample rating value
       imageUrl: pharmasave.src,// Sample image source URL,
       ethAddress:'0xE650ac792a9244dd9E97e37548a1123D9ba27003',
     } as Business,
     {
-      name: 'Business 2',
-      description: 'Description for Business 2',
-      rating: 3.7, // Sample rating value
-      imageUrl: Business1img.src,// Sample image source URL,
+      name: 'Lazeez Shawarma',
+      description: 'Mediterainian grill',
+      imageUrl: lazeez.src,// Sample image source URL,
       ethAddress:'0xE650ac792a9244dd9E97e37548a1123D9ba27003',
     } as Business,
     {
-      name: 'Business 2',
-      description: 'Description for Business 2',
-      rating: 3.7, // Sample rating value
-      imageUrl: Business1img.src,// Sample image source URL,
+      name: 'The Home Depot',
+      description: 'Chain home improvement retailer for tools, appliances & other products',
+      imageUrl: homedepot.src,// Sample image source URL,
       ethAddress:'0xE650ac792a9244dd9E97e37548a1123D9ba27003',
     } as Business,
     {
-      name: 'Business 2',
-      description: 'Description for Business 2',
-      rating: 3.7, // Sample rating value
-      imageUrl: Business1img.src,// Sample image source URL,
+      name: 'Speedy Auto Service',
+      description: 'Mechanic',
+      imageUrl: autoshop.src,// Sample image source URL,
       ethAddress:'0xE650ac792a9244dd9E97e37548a1123D9ba27003',
-    } as Business,
-    {
-      name: 'Business 2',
-      description: 'Description for Business 2',
-      rating: 3.7, // Sample rating value
-      imageUrl: Business1img.src,// Sample image source URL,
-      ethAddress:'0xE650ac792a9244dd9E97e37548a1123D9ba27003',
-    } as Business,
+    } as Business
   ];
   const [showModal, setShowModal] = useState(false);
   const [selectedBusiness, setSelectedBusiness] = useState<Business>(businesses[0]);
