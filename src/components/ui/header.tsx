@@ -24,7 +24,7 @@ const Header: React.FC = () => {
     },
   })
   return (
-    <header className="fixed top-0 left-0 right-0 bg-gradient-to-b from-zinc-200 pb-2 pt-9 backdrop-blur-2xl dark:bg-zinc-800/30 ">
+    <header className="fixed top-0 left-0 right-0 bg-gradient-to-b from-zinc-500 pb-2 pt-9 backdrop-blur-2xl dark:bg-zinc-200">
       <div className="container mx-auto px-6">
         <h1 className="font-bold text-2xl hover:text-emerald-600">honETHly
         <div className='float-right align-top'>
