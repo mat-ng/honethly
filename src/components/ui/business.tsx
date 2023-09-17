@@ -13,7 +13,8 @@ export const BusinessModal = (props: { business: Business, isShowing: boolean, s
 
   
   const [isVerified, setIsVerified] = useState(false)
-  const [textValue, setTextValue] = useState('')
+  const [pizzaTextDisabled, setPizzaTextDisabled] = useState(false)
+  const [musicTextDisabled, setMusicTextDisabled] = useState(false)
 
   const closeModal = (e: any) => {
     if (modalRef.current) {
@@ -21,7 +22,8 @@ export const BusinessModal = (props: { business: Business, isShowing: boolean, s
     }
   };
 
-  const [reviews, setReviews] = useState(["The pizza is very tasty", "Good customer service. I would come again.", "Affordable price and clean restaurant ."])
+  const [pizzaReviews, setPizzaReviews] = useState(["The pizza is very tasty", "Good customer service. I would come again.", "Affordable price and clean restaurant ."])
+  const [musicReviews, setMusicReviews] = useState(["nice and helpful staff, very informative", "Great selection of instruments"])
 
   const redirectToWallet = () => {
     window.open(`/transfer?to=${business.ethAddress}`);
@@ -32,7 +34,7 @@ export const BusinessModal = (props: { business: Business, isShowing: boolean, s
       setIsVerified(false);
       return;
     }
-    const res = await fetch('https://api-goerli.etherscan.io/api?module=account&action=txlist&address=0x71896ddf262ceaedb7f064c5d5d43703981f388e&startblock=0&endblock=99999999&page=1&offset=10&sort=asc&apikey=8BVPPZIHUYX9HDBQ388S6ST3TFESSZWU31')
+    const res = await fetch(`https://api-goerli.etherscan.io/api?module=account&action=txlist&address=${address?.toLocaleLowerCase()}&startblock=0&endblock=99999999&page=1&offset=10&sort=asc&apikey=8BVPPZIHUYX9HDBQ388S6ST3TFESSZWU31`)
     const data = await res.json()
     data.result.map((transaction: any) => {
         if (transaction.to == "0xe650ac792a9244dd9e97e37548a1123d9ba27003" && transaction.from == address?.toLocaleLowerCase()) { 
@@ -42,10 +44,17 @@ export const BusinessModal = (props: { business: Business, isShowing: boolean, s
   })
 }
 
-const handleSubmit = (e: any) => {
+const handlePizzaSubmit = (e: any) => {
   if (e.code == "Enter") {
-    setReviews(prevState => ([e.target.value, ...prevState]))
-    setTextValue('')
+    setPizzaReviews(prevState => ([e.target.value, ...prevState]))
+    setPizzaTextDisabled(true)
+  }
+}
+
+const handleMusicSubmit = (e: any) => {
+  if (e.code == "Enter") {
+    setMusicReviews(prevState => ([e.target.value, ...prevState]))
+    setMusicTextDisabled(true)
   }
 }
 
@@ -76,15 +85,26 @@ const handleSubmit = (e: any) => {
               Review
             </button>
             
-            {isVerified ? <>
+            {isVerified ? business.name=="Campus Pizza" ? <>
               <input
-                value={textValue}
                 type="text"
                 placeholder="Enter a review"
-                onKeyUp={handleSubmit}
-                onChange={e => setTextValue(e.target.value)}
+                onKeyUp={handlePizzaSubmit}
+                style={{display: pizzaTextDisabled ? 'none' : ''}}
               />
-              {reviews.map((review) => {
+              {pizzaReviews.map((review) => {
+                return <p>{review}</p>
+              })}
+              </>
+              :
+              <>
+              <input
+                type="text"
+                placeholder="Enter a review"
+                onKeyUp={handleMusicSubmit}
+                style={{display: musicTextDisabled ? 'none' : ''}}
+                />
+              {musicReviews.map((review) => {
                 return <p>{review}</p>
               })}
             </>
