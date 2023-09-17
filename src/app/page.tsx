@@ -42,7 +42,7 @@ const Homepage: React.FC = () => {
     } as Business,
     {
       name: 'Lazeez Shawarma',
-      description: 'Mediterainian grill',
+      description: 'Mediterranean grill',
       imageUrl: lazeez.src,// Sample image source URL,
       ethAddress:'0xE650ac792a9244dd9E97e37548a1123D9ba27003',
     } as Business,
@@ -74,7 +74,7 @@ const Homepage: React.FC = () => {
   return (
     <>
       <div className="h-8 bg-black">
-        <Header />
+        
         <SearchBar filterSearch = {handleNewFilter}/>
       </div>
       <div className="mt-10 flex flex-col justify-center bg-black pb-16 pt-8">
@@ -86,6 +86,7 @@ const Homepage: React.FC = () => {
           </div>
         </div>
       </div>
+      <Header />
       <BusinessModal business={selectedBusiness} isShowing={showModal} setIsShowing={setShowModal}/>
 
     </>
