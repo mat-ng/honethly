@@ -10,10 +10,10 @@ import { publicProvider } from 'wagmi/providers/public';
 const Header: React.FC = () => {
   const { address, isConnected } = useAccount();
 
-  const { connect, connectors, error, isLoading, pendingConnector } =
+  const { connect, isLoading, pendingConnector } =
     useConnect();
   const { disconnect } = useDisconnect();
-  const { chains, publicClient, webSocketPublicClient } = configureChains(
+  const { chains } = configureChains(
     [goerli],
     [alchemyProvider({ apiKey: "zq4k85wT9YjooA5Fa1G1QS3nB0JteAWN" }), publicProvider()]
   );
