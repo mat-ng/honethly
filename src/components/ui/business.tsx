@@ -23,10 +23,6 @@ export const BusinessModal = (props: { business: Business, isShowing: boolean, s
     window.open('/transfer');
   };
 
-  const redirectToReview = () => {
-    window.open('/review');
-  };
-
   const handleReview = async () => {
     console.log(isVerified)
     const res = await fetch('https://api-goerli.etherscan.io/api?module=account&action=txlist&address=0x71896ddf262ceaedb7f064c5d5d43703981f388e&startblock=0&endblock=99999999&page=1&offset=10&sort=asc&apikey=8BVPPZIHUYX9HDBQ388S6ST3TFESSZWU31')
@@ -60,9 +56,6 @@ const handleSubmit = (e: any) => {
           >
             <h2 className="text-xl font-semibold mb-4">{name}</h2>
             <p className="text-gray-600 mb-4">{description}</p>
-            <div className="mt-2 flex items-center">
-              <span className="text-yellow-500">{rating} stars</span>
-            </div>
             <button
               onClick={redirectToWallet}
               className="bg-gray-500 hover:bg-gray-600 text-white rounded-md px-2 py-1 my-2 focus:outline-none mr-2"
