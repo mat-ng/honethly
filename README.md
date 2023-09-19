@@ -1,3 +1,5 @@
+Check out the Dev Post here: https://devpost.com/software/honethly
+
 # nextjs-wagmi-viem-starter
 
 NextJS 13 with wagmi & viem
